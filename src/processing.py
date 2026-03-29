@@ -11,6 +11,7 @@
     {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}
 ]"""
 
+
 def filter_by_state(my_list, my_state='EXECUTED'):
     """ Функция возвращает новый список словарей, содержащий только те словари,
      у которых ключ state соответствует указанному значению. """
@@ -32,3 +33,6 @@ list = [
 print(filter_by_state(list))
 
 
+def sort_by_date(my_list: str, my_date=True):
+    """ Функция возвращает новый список, отсортированный по дате (date) """
+    new_list_date = []
