@@ -8,6 +8,10 @@ def get_mask_card_number(card_number: Union[int, str]) -> str:
     part_1 = card_number[:4] + " "
     part_2 = card_number[4:6]
     part_3 = card_number[12:16]
+
+
+    if len(card_number) != 16 or not card_number.isdigit():
+        raise ValueError("Неправильно набран номер")
     return part_1 + part_2 + mask + part_3
 
 
