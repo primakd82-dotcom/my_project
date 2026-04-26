@@ -1,22 +1,22 @@
 import pytest
-from src.masks import get_mask_card_number, get_mask_account, card_number
+from src.masks import get_mask_card_number, get_mask_account
 
 
-@pytest.fixture
-def card_number():
-    return [555522223333777]
-
-
-def test_get_mask_card_number():
+@pytest.mark.parametrize("card_number, expected", [("5555222233337777", "5555 22** **** 7777")])
+def test_get_mask_card_number_valid(card_number, expected):
     """ Функция, которая тестирует правильность ввода и вывода номера карты """
-    assert get_mask_card_number("5555222233337777") == "5555 22** **** 7777"
+    assert get_mask_card_number(card_number) == expected
 
 
-def test_get_mask_card_number_invalid_number(card_number):
+@pytest.mark.parametrize("invalid_number", [("555522223333", "fanfekgrldofgrgd",
+                                             "", None)])
+def test_get_mask_card_number_invalid(invalid_number):
     with pytest.raises(ValueError):
-        get_mask_card_number([555522223333777])
+        get_mask_card_number(invalid_number)
 
 
-def test_get_mask_account():
+@pytest.mark.parametrize("user_account, expected", [("73654108430135874305",
+                                                      "**4305")])
+def test_get_mask_account(user_account, expected):
     """ Функция, которая тестирует правильность ввода и вывода номера счета """
-    assert get_mask_account("73654108430135874305") == "**4305"
+    assert get_mask_account(user_account) == expected
