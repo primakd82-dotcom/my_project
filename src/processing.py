@@ -20,7 +20,6 @@ def filter_by_state(transactions: list, status='EXECUTED') -> list:
     for item in transactions:
         if item.get('state') == status:
             new_list.append(item)
-
     return new_list
 
 

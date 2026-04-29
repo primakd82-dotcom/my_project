@@ -4,7 +4,7 @@ from src.masks import get_mask_card_number, get_mask_account
 
 @pytest.fixture
 def test_get_mask_card_number_valid():
-    """Функция тестирует стандартный 16 значный номер карты"""
+    """ Функция тестирует стандартный 16 значный номер карты """
     assert get_mask_card_number("5555222233337777") == "5555 22** **** 7777"
 
 
