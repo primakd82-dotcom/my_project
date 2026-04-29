@@ -1,9 +1,10 @@
 import pytest
-from src.masks import get_mask_card_number, get_mask_account
+
+from src.masks import get_mask_account, get_mask_card_number
 
 
 @pytest.fixture
-def test_get_mask_card_number_valid():
+def get_mask_card_number_valid():
     """ Функция тестирует стандартный 16 значный номер карты """
     assert get_mask_card_number("5555222233337777") == "5555 22** **** 7777"
 
@@ -22,8 +23,7 @@ def test_get_mask_card_number_invalid(invalid_number):
         get_mask_card_number(invalid_number)
 
 
-@pytest.mark.parametrize("user_account, expected", [("73654108430135874305",
-                                                      "**4305")])
+@pytest.mark.parametrize("user_account, expected", [("73654108430135874305", "**4305")])
 def test_get_mask_account(user_account, expected):
     """ Функция, которая тестирует правильность ввода и вывода номера счета """
     assert get_mask_account(user_account) == expected

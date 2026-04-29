@@ -34,5 +34,5 @@ def get_date(date: str) -> str:
         return None
     return f"{day}.{month}.{year}"
 
-print(get_date("2024-03-11Т02:26:18.671407"))
 
+print(get_date("2024-03-11Т02:26:18.671407"))
