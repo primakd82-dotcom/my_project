@@ -30,6 +30,9 @@ def get_date(date: str) -> str:
     month = date[5:7]
     day = date[8:10]
 
+    if not date:
+        return None
     return f"{day}.{month}.{year}"
 
 print(get_date("2024-03-11Т02:26:18.671407"))
+
