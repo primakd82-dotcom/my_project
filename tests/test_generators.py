@@ -82,6 +82,7 @@ transactions = [
         }
     ]
 
+
 @pytest.mark.parametrize("currency, expected_ids", [("USD", [939719570, 142264268, 895315941]),
                                                     ("RUB", [873106923, 594226727]),
                                                     ("EUR", [])])
