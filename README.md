@@ -106,11 +106,31 @@ Cодержит тесты для обработки функций get_mask_car
 
 
 * Добавлен модуль generators.py
+
 Модуль содержит новые функции, реализующие генераторы для обработки данных.
 В него включены следующие функции:
 
     filter_by_currency - возвращает итератор по транзакциям с заданной валютой.
-    transaction_descriptions - генератор, который принимает список словарей с транзакциями и возвращает
-описание каждой операции по очереди.
-    card_number_generator - генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX.
+    
+Пример использования функции:
 
+    usd_transactions = filter_by_currency(transactions, "USD")
+    for _ in range(2):
+        print(next(usd_transactions))
+.
+    
+    transaction_descriptions - генератор, который принимает список словарей с транзакциями и возвращает описание каждой операции по очереди.
+    
+Пример использования функции:
+
+    descriptions = transaction_descriptions(transactions)
+    for _ in range(5):
+        print(next(descriptions))
+.
+    
+    card_number_generator - генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX.
+    
+Пример использования функции:
+
+    for card_number in card_number_generator(1, 5):
+        print(card_number)
