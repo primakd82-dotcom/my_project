@@ -2,12 +2,15 @@ from typing import Union
 
 
 def get_mask_card_number(card_number: Union[int, str]) -> str:
-    """Функция принимает на вход номер карты в виде числа и возвращает маску номера"""
+    """ Функция принимает на вход номер карты в виде числа и возвращает маску номера """
     card_number = str(card_number)
     mask = "** ****" + " "
     part_1 = card_number[:4] + " "
     part_2 = card_number[4:6]
     part_3 = card_number[12:16]
+
+    if len(card_number) != 16 or not card_number.isdigit():
+        raise ValueError("Неправильно набран номер")
     return part_1 + part_2 + mask + part_3
 
 
@@ -16,7 +19,7 @@ print(get_mask_card_number(card_number))
 
 
 def get_mask_account(user_account: Union[int, str]) -> str:
-    """Функция маскировки банковского счета"""
+    """ Функция маскировки банковского счета """
     user_account = str(user_account)
     mask = "**"
     part = user_account[-4:]
